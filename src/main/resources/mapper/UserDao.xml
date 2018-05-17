@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.solbox.api.dao.UserDao">
+    <select id="getUserInfo" resultType="hashMap">
+        SELECT user_id, telco_gubun, user_level
+        FROM strmondb.t_user
+        WHERE deleted_yn='N'
+          AND user_id=#{uid}
+          AND user_pwd=SHA2(#{pwd}, 256)
+    </select>
+</mapper>
