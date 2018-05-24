@@ -29,6 +29,9 @@ public class MainController {
     @RequestMapping("/main")
     public String main() { return "main"; }
 
+    @RequestMapping("/maindashboard/main")
+    public String mainDashboard() { return "maindashboard/main"; }
+
     @RequestMapping("/streaming/dashboard")
     public String streamingDashboard() {
         return "streaming/dashboard";

@@ -1,0 +1,30 @@
+<div class="container-fluid" ng-controller="mainDashboardCtl">
+    <div class="col-md-12 col-sm-12">
+        <div class="text-center">
+            <h2>Main Dashboard</h2>
+        </div>
+        <div class="col-md-12 col-sm-12">
+            <div ng-class="mdAlertClass" role="alert" ng-bind="mdAlertMsg" ng-show="mdAlert"></div>
+        </div>
+        <br/>
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+            <table class="table table-bordered table-hover table-condensed" style="margin-top: 2%">
+                <colgroup>
+                    <col width="30%" />
+                    <col width="35%" />
+                    <col width="35%" />
+                </colgroup>
+                <tr class="info">
+                    <th class="text-center">고객명</th>
+                    <th class="text-center">Grafana</th>
+                    <th class="text-center">Live Streaming</th>
+                </tr>
+                <tr ng-repeat="item in mainDashboardList">
+                    <td class="text-center"><span ng-bind="item.custom"></span></td>
+                    <td class="text-center"><h1><span class="badge"><span ng-bind="item.gf_status"></span></span></h1></td>
+                    <td class="text-center"><h1><span class="badge"><span ng-bind="item.live_stream_status"></span></span></h1></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
