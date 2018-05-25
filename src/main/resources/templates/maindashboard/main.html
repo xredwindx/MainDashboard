@@ -8,6 +8,13 @@
         </div>
         <br/>
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+            <div>
+                <ul>
+                    <li>Grafana는 delivery만 모니터링함</li>
+                    <li>Grafana에서 상태 클릭시 Grafana 페이지로 이동함</li>
+                    <li>Live Streaming에서 상태 클릭시 해당 고객의 live streaming 모니터링 페이지로 이동함</li>
+                </ul>
+            </div>
             <table class="table table-bordered table-hover table-condensed" style="margin-top: 2%">
                 <colgroup>
                     <col width="30%" />
@@ -20,9 +27,9 @@
                     <th class="text-center">Live Streaming</th>
                 </tr>
                 <tr ng-repeat="item in mainDashboardList">
-                    <td class="text-center"><span ng-bind="item.custom"></span></td>
-                    <td class="text-center"><h1><span class="badge"><span ng-bind="item.gf_status"></span></span></h1></td>
-                    <td class="text-center"><h1><span class="badge"><span ng-bind="item.live_stream_status"></span></span></h1></td>
+                    <td style="vertical-align: middle;" class="text-center"><span ng-bind="item.custom"></span></td>
+                    <td class="text-center"><span class="label label-default" ng-bind="item.gf_status"></span></td>
+                    <td class="text-center"><button type="button" class="btn btn-circle btn-xl"><span ng-bind="item.live_stream_status"></span></button></td>
                 </tr>
             </table>
         </div>
