@@ -43,18 +43,38 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     // init
     $scope.init();
 
-    $scope.getBgColor = function (item) {
-        var ret = "danger";
-        if(item == "Warning") {
-            ret = "active";
-        } else if (item == "Error") {
-            ret = "warning";
+    // class color
+    $scope.getStatusClass = function (item) {
+        var ret = "btn btn-circle btn-xl";
+        if(item == "") {
+            ret += " btn-default";
+        } else if (item == "1") {
+            ret += " btn-success";
+        } else {
+            ret += " btn-danger";
         }
         return ret;
     }
 
-    $scope.history = function () {
-        $window.open("/streaming/history","_blank");
+    // status text
+    $scope.getStatusText = function (item) {
+        var ret = "N/A";
+        if (item == "1") {
+            ret = "정상";
+        } else if (item == "0") {
+            ret = "에러";
+        }
+        return ret;
+    }
+
+    // link
+    $scope.blankLink = function (item, type) {
+        if(type == "gf") {
+            $window.open(item.gf_url,"_blank");
+        } else {
+            var $popup = $window.open("/streaming/","_blank");
+            $popup.customer = item.custom;
+        }
     }
 
     // refresh
