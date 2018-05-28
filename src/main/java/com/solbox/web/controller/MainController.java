@@ -33,7 +33,8 @@ public class MainController {
     public String mainDashboard() { return "maindashboard/main"; }
 
     @RequestMapping("/streaming/dashboard")
-    public String streamingDashboard() {
+    public String streamingDashboard(HttpServletRequest req, Model model) {
+        model.addAttribute("custom", req.getParameter("custom"));
         return "streaming/dashboard";
     }
 

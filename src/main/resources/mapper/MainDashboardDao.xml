@@ -6,17 +6,21 @@
         SELECT custom, gf_url, IFNULL(gf_status, '') AS gf_status
         , CASE WHEN live_stream_sum = 0 THEN 1 WHEN live_stream_sum IS NULL THEN '' ELSE 0 END AS live_stream_status
         FROM kt_md_custom mc LEFT JOIN (
-            SELECT sp_comp_name, gf_status
-            FROM svcdb.kt_svc c INNER JOIN kt_gf_mon gm ON c.svc_name=gm.service
+                SELECT sp_comp_name, gf_status
+                FROM svcdb.kt_svc c INNER JOIN (
+                        select service, gf_status, MAX(reg_datetime) from kt_gf_mon group by service
+                ) gm ON c.svc_name=gm.service
+                GROUP BY sp_comp_name, gf_status
             ) gf ON mc.custom=gf.sp_comp_name LEFT JOIN (
-            SELECT z.customer, SUM(z.cnt) AS live_stream_sum
-            FROM (
-            SELECT customer, CASE WHEN mon_status = 'OK' || mon_status = 'RECOVERY' THEN 0 ELSE 1 END AS cnt
-            FROM strmondb.t_stream_mon
-            WHERE telco_gubun = 'KT'
-            AND deleted_yn='N'
-            ) z
-            GROUP BY z.customer
+                SELECT z.customer, SUM(z.cnt) AS live_stream_sum
+                FROM (
+                SELECT customer, CASE WHEN mon_status = 'OK' || mon_status = 'RECOVERY' THEN 0 ELSE 1 END AS cnt
+                FROM strmondb.t_stream_mon
+                WHERE telco_gubun = 'KT'
+                AND deleted_yn='N'
+                ) z
+                GROUP BY z.customer
             ) stream ON mc.custom=stream.customer
+        ORDER BY custom_level
     </select>
 </mapper>

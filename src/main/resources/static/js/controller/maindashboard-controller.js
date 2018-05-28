@@ -1,7 +1,7 @@
 /**
  * Created by ??? on 2018-05-23.
  */
-routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $window, $uibModal) {
+routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $window) {
     // init
     $scope.init = function () {
         var userInfo = JSON.parse(sessionStorage.getItem("userInfo"));
@@ -70,10 +70,13 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     // link
     $scope.blankLink = function (item, type) {
         if(type == "gf") {
-            $window.open(item.gf_url,"_blank");
+            $window.open(item.gf_url, "_blank");
         } else {
-            var $popup = $window.open("/streaming/","_blank");
-            $popup.customer = item.custom;
+            if(item.live_stream_status == "") {
+                return;
+            }
+
+            $window.open("/streaming/dashboard?custom="+$window.btoa($window.encodeURI(item.custom)), "_blank");
         }
     }
 

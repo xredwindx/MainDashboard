@@ -5,7 +5,7 @@ var routeApp = app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state("streaming", {
+        .state("maindashboard", {
             url: "/",
             templateUrl: "/maindashboard/main"
         });
