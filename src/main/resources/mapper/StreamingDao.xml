@@ -17,13 +17,13 @@
         SELECT z.*
         FROM (
             SELECT (@RN := @RN+1) AS rn,
-            smh.telco_gubun, smh.service, smh.host_name, smh.server_type, smh.volume, smh.stream_name, smh.mon_status, smh.reg_datetime
-            FROM t_stream_mon_his AS smh, (SELECT @RN := 0) AS X
+            smh.service, smh.host_name, smh.server_type, smh.volume, smh.stream_name, smh.mon_status, smh.reg_datetime
+            FROM strmondb.t_stream_mon_his AS smh, (SELECT @RN := 0) AS X
             WHERE smh.deleted_yn = 'N'
+            AND smh.customer = #{custom}
             <if test="searchText != ''">
                 AND (
-                smh.telco_gubun LIKE CONCAT('%',#{searchText},'%')
-                OR smh.service LIKE CONCAT('%',#{searchText},'%')
+                smh.service LIKE CONCAT('%',#{searchText},'%')
                 OR smh.host_name LIKE CONCAT('%',#{searchText},'%')
                 OR smh.server_type LIKE CONCAT('%',#{searchText},'%')
                 OR smh.volume LIKE CONCAT('%',#{searchText},'%')
@@ -40,13 +40,13 @@
     </select>
 
     <select id="historyTotalCount" resultType="int">
-        SELECT count(*)
-        FROM t_stream_mon_his
+        SELECT COUNT(*)
+        FROM strmondb.t_stream_mon_his
         WHERE deleted_yn = 'N'
+        AND customer = #{custom}
         <if test="searchText != ''">
             AND (
-            telco_gubun LIKE CONCAT('%',#{searchText},'%')
-            OR service LIKE CONCAT('%',#{searchText},'%')
+            service LIKE CONCAT('%',#{searchText},'%')
             OR host_name LIKE CONCAT('%',#{searchText},'%')
             OR server_type LIKE CONCAT('%',#{searchText},'%')
             OR volume LIKE CONCAT('%',#{searchText},'%')

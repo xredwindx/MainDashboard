@@ -2,19 +2,15 @@
 <div class="container-fluid" ng-controller="streamingCtrl">
     <div class="col-md-12 col-sm-12">
         <div class="text-center">
-            <h2><span ng-bind="custom"></span> Live Streaming 목록</h2>
+            <h2><span ng-bind="custom"></span> Live Streaming</h2>
         </div>
         <div class="col-md-12 col-sm-12">
             <div ng-class="streamingAlertClass" role="alert" ng-bind="streamingAlertMsg" ng-show="streamingAlert"></div>
         </div>
         <br/>
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-            <div>
-                <form class="form-inline">
-                    <button type="button" class="btn btn-default btn-sm pull-right" ng-click="history()">장애로그기록</button>
-                </form>
-            </div>
-            <table class="table table-bordered table-hover table-condensed" style="margin-top: 2%">
+            <button type="button" class="btn btn-default btn-sm" ng-click="history()">History</button>
+            <table class="table table-bordered table-hover table-condensed" style="margin-top: 10px">
                 <colgroup>
                     <col width="5%" />
                     <col width="15%" />
@@ -60,7 +56,7 @@
         // init
         $scope.init = function () {
             var custom = $("#customEncrypt").val();
-            $scope.custom = decodeURIComponent($window.atob(custom));
+            $scope.custom = decodeURIComponent($window.atob(decodeURIComponent(custom)));
             $scope.getStreamingList();
         }
 
@@ -109,7 +105,7 @@
         }
 
         $scope.history = function () {
-            $window.open("/streaming/history","_blank");
+            $window.open("/streaming/history?custom="+$("#customEncrypt").val(),"_blank");
         }
 
         // modal play

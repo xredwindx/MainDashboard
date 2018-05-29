@@ -3,7 +3,13 @@
 </div>
 <div class="modal-body">
     <div id="player"></div>
-    Stream URL : <span ng-bind="streamUrl"></span>
+    <div>
+        <ul>
+            <li>Stream URI : <span ng-bind="streamUrl"></span></li>
+            <li>Edge인 경우는 Stream URI에다가 token 추가해야 확인가능합니다.<br/>
+            ex) <span ng-bind="streamUrl"></span>?token=eyJhbGci.eyJleHAiOjE2Nj.4FOWtENHOP8</li>
+        </ul>
+    </div>
     <script type="text/javascript">
         jwplayer("player").setup({
             playlist: [{

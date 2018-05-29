@@ -76,7 +76,7 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
                 return;
             }
 
-            $window.open("/streaming/dashboard?custom="+$window.btoa($window.encodeURI(item.custom)), "_blank");
+            $window.open("/streaming/dashboard?custom="+$window.encodeURIComponent($window.btoa($window.encodeURIComponent(item.custom))), "_blank");
         }
     }
 

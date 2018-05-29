@@ -39,7 +39,8 @@ public class MainController {
     }
 
     @RequestMapping("/streaming/history")
-    public String streamingHistory() {
+    public String streamingHistory(HttpServletRequest req, Model model) {
+        model.addAttribute("custom", req.getParameter("custom"));
         return "streaming/history";
     }
 
