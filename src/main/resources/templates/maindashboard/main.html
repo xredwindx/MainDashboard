@@ -4,7 +4,8 @@
             <div ng-class="mdAlertClass" role="alert" ng-bind="mdAlertMsg" ng-show="mdAlert"></div>
         </div>
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
-            <div>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="collapse" data-target="#noti">공지사항</button>
+            <div id="noti" class="collapse">
                 <ul>
                     <li>E2E Main Dashboard는 E2E 관제 결과의 성공, 실패에 대한 요약된 정보를 제공 합니다.</li>
                     <li>"Grafana"는 delivery,VOD 서비스의 모니터링결과이며, 상태 클릭시 Grafana 페이지로 이동됩니다.</li>
