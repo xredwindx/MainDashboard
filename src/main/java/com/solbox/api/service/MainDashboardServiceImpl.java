@@ -65,7 +65,6 @@ public class MainDashboardServiceImpl implements MainDashboardService {
             }
             index++;
         }
-//        querySvc += "servicename='ajnews'";
         querySvc += ")";
         String query = "SELECT sum(error) As status FROM "+influxDBName+".delivery WHERE time > now()-2m AND "+querySvc;
         String url = influxUrl+"/query?db="+influxDBName+"&u="+influxUser+"&p="+influxPwd+"&q="+query;

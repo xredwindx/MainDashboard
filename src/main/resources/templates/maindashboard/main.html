@@ -18,22 +18,112 @@
             </div>
             <table class="table table-bordered table-hover table-condensed" style="margin-top: 2%">
                 <colgroup>
-                    <col width="30%" />
-                    <col width="35%" />
-                    <col width="35%" />
+                    <col width="20%" />
+                    <col width="20%" />
+                    <col width="20%" />
+                    <col width="20%" />
+                    <col width="20%" />
                 </colgroup>
                 <tr class="info">
-                    <th class="text-center">고객명</th>
-                    <th class="text-center">Grafana</th>
-                    <th class="text-center">Live Streaming</th>
+                    <th class="text-center" ng-repeat="item in [1,2,3,4,5]">
+                        <table width="100%">
+                            <colgroup>
+                                <col width="40%" />
+                                <col width="30%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tr>
+                                <td>고객명</td>
+                                <td>Grafana</td>
+                                <td>Live Streaming</td>
+                            </tr>
+                        </table>
+                    </th>
                 </tr>
-                <tr ng-repeat="item in mainDashboardList">
-                    <td style="vertical-align: middle;" class="text-center"><span ng-bind="item.custom"></span></td>
-                    <td class="text-center"><button type="button" ng-class="getStatusClass(item.gf_status)" ng-click="blankLink(item, 'gf')">
-                        <span ng-bind="getStatusText(item.gf_status)"></span></button></td>
-                    <td class="text-center"><button type="button" ng-class="getStatusClass(item.live_stream_status)" ng-click="blankLink(item, 'live')">
-                        <span ng-bind="getStatusText(item.live_stream_status)"></span></button></td>
-                </tr>
+                <tbody ng-repeat="item in mainDashboardList">
+                    <tr ng-if="$index % 5 == 0">
+                        <td class="text-center">
+                            <table width="100%">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="30%" />
+                                    <col width="30%" />
+                                </colgroup>
+                                <tr>
+                                    <td><span ng-bind="item.custom"></span></td>
+                                    <td><button type="button" ng-class="getStatusClass(item.gf_status)" ng-click="blankLink(item, 'gf')">
+                                        <span ng-bind="getStatusText(item.gf_status)"></span></button></td>
+                                    <td><button type="button" ng-class="getStatusClass(item.live_stream_status)" ng-click="blankLink(item, 'live')">
+                                        <span ng-bind="getStatusText(item.live_stream_status)"></span></button></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="text-center" ng-if="$index+1 < mainDashboardList.length">
+                            <table width="100%">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="30%" />
+                                    <col width="30%" />
+                                </colgroup>
+                                <tr>
+                                    <td><span ng-bind="mainDashboardList[$index+1].custom"></span></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+1].gf_status)" ng-click="blankLink(mainDashboardList[$index+1], 'gf')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+1].gf_status)"></span></button></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+1].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+1], 'live')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+1].live_stream_status)"></span></button></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="text-center" ng-if="$index+2 < mainDashboardList.length">
+                            <table width="100%">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="30%" />
+                                    <col width="30%" />
+                                </colgroup>
+                                <tr>
+                                    <td><span ng-bind="mainDashboardList[$index+2].custom"></span></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+2].gf_status)" ng-click="blankLink(mainDashboardList[$index+2], 'gf')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+2].gf_status)"></span></button></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+2].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+2], 'live')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+2].live_stream_status)"></span></button></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="text-center" ng-if="$index+3 < mainDashboardList.length">
+                            <table width="100%">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="30%" />
+                                    <col width="30%" />
+                                </colgroup>
+                                <tr>
+                                    <td><span ng-bind="mainDashboardList[$index+3].custom"></span></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+3].gf_status)" ng-click="blankLink(mainDashboardList[$index+3], 'gf')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+3].gf_status)"></span></button></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+3].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+3], 'live')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+3].live_stream_status)"></span></button></td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td class="text-center" ng-if="$index+4 < mainDashboardList.length">
+                            <table width="100%">
+                                <colgroup>
+                                    <col width="40%" />
+                                    <col width="30%" />
+                                    <col width="30%" />
+                                </colgroup>
+                                <tr>
+                                    <td><span ng-bind="mainDashboardList[$index+4].custom"></span></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+4].gf_status)" ng-click="blankLink(mainDashboardList[$index+4], 'gf')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+4].gf_status)"></span></button></td>
+                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+4].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+4], 'live')">
+                                        <span ng-bind="getStatusText(mainDashboardList[$index+4].live_stream_status)"></span></button></td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </div>
