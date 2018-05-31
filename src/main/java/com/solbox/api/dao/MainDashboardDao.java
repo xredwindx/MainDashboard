@@ -11,4 +11,5 @@ import java.util.Map;
 @Mapper
 public interface MainDashboardDao {
     List<Map<String, Object>> getMainDashboard();
+    List<String> getServiceList(String custom);
 }

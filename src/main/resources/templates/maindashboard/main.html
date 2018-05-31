@@ -6,9 +6,13 @@
         <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
             <div>
                 <ul>
-                    <li>Main Dashboard는 주요고객사만 표시</li>
-                    <li>Grafana는 delivery만 모니터링 그리고 상태 클릭시 Grafana 페이지로 이동</li>
-                    <li>Live Streaming에서 상태 클릭시 해당 고객의 live streaming 모니터링 페이지로 이동 그러나 상태가 N/A일 경우 이동 X</li>
+                    <li>E2E Main Dashboard는 E2E 관제 결과의 성공, 실패에 대한 요약된 정보를 제공 합니다.</li>
+                    <li>"Grafana"는 delivery,VOD 서비스의 모니터링결과이며, 상태 클릭시 Grafana 페이지로 이동됩니다.</li>
+                    <li>"Live Streaming"은 상태 표시 클릭시 해당 고객의 모니터링 페이지로 이동합니다. (단, 상태가 N/A일 경우 이동되지 않습니다)</li>
+                    <li>상태는 에러(<button type="button" class="btn btn-circle btn-danger">에러</button>),
+                        정상(<button type="button" class="btn btn-circle btn-success">정상</button>),
+                        N/A(<button type="button" class="btn btn-circle btn-default">N/A</button>) 3가지입니다.</li>
+                    <li>"E2E Main Dashboard"에 추가등록 또는 삭제등의 수정이 필요한 경우 ts@solbox.com으로 연락바랍니다.</li>
                 </ul>
             </div>
             <table class="table table-bordered table-hover table-condensed" style="margin-top: 2%">
@@ -25,9 +29,9 @@
                 <tr ng-repeat="item in mainDashboardList">
                     <td style="vertical-align: middle;" class="text-center"><span ng-bind="item.custom"></span></td>
                     <td class="text-center"><button type="button" ng-class="getStatusClass(item.gf_status)" ng-click="blankLink(item, 'gf')">
-                        <h4><span ng-bind="getStatusText(item.gf_status)"></span></h4></button></td>
+                        <span ng-bind="getStatusText(item.gf_status)"></span></button></td>
                     <td class="text-center"><button type="button" ng-class="getStatusClass(item.live_stream_status)" ng-click="blankLink(item, 'live')">
-                        <h4><span ng-bind="getStatusText(item.live_stream_status)"></span></h4></button></td>
+                        <span ng-bind="getStatusText(item.live_stream_status)"></span></button></td>
                 </tr>
             </table>
         </div>

@@ -47,7 +47,7 @@ public class StreamingController {
         try {
             streamingHistoryList = streamingService.getStreamingHistoryList(param);
             totalCount = streamingService.historyTotalCount(param);
-        } catch(Exception e) {
+        } catch (Exception e) {
             log.error(e.getMessage(), e);
             apiStatus = HttpStatus.INTERNAL_SERVER_ERROR;
         }
@@ -55,36 +55,6 @@ public class StreamingController {
         Map<String, Object> returnValue = new HashMap<>();
         returnValue.put("streamingHistoryList", streamingHistoryList);
         returnValue.put("totalCount", totalCount);
-
-        return new ResponseEntity<>(returnValue, apiStatus);
-    }
-
-    @RequestMapping(value = "/api/streaming/check", method = RequestMethod.POST)
-    public ResponseEntity<?> editCheckedYN(@RequestBody Map<String, Object> param) {
-        HttpStatus apiStatus = HttpStatus.OK;
-        int returnValue = 0;
-
-        try {
-            returnValue = streamingService.updateCheckedYN(param);
-        } catch(Exception e) {
-            log.error(e.getMessage(), e);
-            apiStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-
-        return new ResponseEntity<>(returnValue, apiStatus);
-    }
-
-    @RequestMapping(value = "/api/streaming/delete", method = RequestMethod.POST)
-    public ResponseEntity<?> deleteStreaming(@RequestBody Map<String, Object> param) {
-        HttpStatus apiStatus = HttpStatus.OK;
-        int returnValue = 0;
-
-        try {
-            returnValue = streamingService.deleteStreaming(param);
-        } catch(Exception e) {
-            log.error(e.getMessage(), e);
-            apiStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-        }
 
         return new ResponseEntity<>(returnValue, apiStatus);
     }

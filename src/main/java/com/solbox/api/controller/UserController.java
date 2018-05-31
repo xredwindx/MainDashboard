@@ -42,19 +42,4 @@ public class UserController {
 
         return new ResponseEntity<>(userInfo, apiStatus);
     }
-
-    @RequestMapping(value = "/api/pwdChange", method = RequestMethod.POST)
-    public ResponseEntity<?> pwdChange(@RequestBody Map<String, Object> param) {
-        HttpStatus apiStatus = HttpStatus.OK;
-        int result = 0;
-
-        try {
-            result = userService.changePwd(param);
-        } catch(Exception e) {
-            log.error(e.getMessage(), e);
-            apiStatus = HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-
-        return new ResponseEntity<>(result, apiStatus);
-    }
 }

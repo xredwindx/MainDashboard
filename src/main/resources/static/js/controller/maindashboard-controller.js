@@ -45,10 +45,10 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
 
     // class color
     $scope.getStatusClass = function (item) {
-        var ret = "btn btn-circle btn-xl";
+        var ret = "btn btn-circle btn-ll";
         if(item == "") {
             ret += " btn-default";
-        } else if (item == "1") {
+        } else if (item == "0") {
             ret += " btn-success";
         } else {
             ret += " btn-danger";
@@ -58,10 +58,13 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
 
     // status text
     $scope.getStatusText = function (item) {
-        var ret = "N/A";
-        if (item == "1") {
+        var ret = ""
+        if(item == "") {
+            ret = "N/A";
+        }
+        else if (item == "0") {
             ret = "정상";
-        } else if (item == "0") {
+        } else {
             ret = "에러";
         }
         return ret;
@@ -76,7 +79,7 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
                 return;
             }
 
-            $window.open("/streaming/dashboard?custom="+$window.encodeURIComponent($window.btoa($window.encodeURIComponent(item.custom))), "_blank");
+            $window.open("/streaming/dashboard?custom="+$window.encodeURIComponent($window.btoa($window.encodeURI(item.custom))), "_blank");
         }
     }
 
