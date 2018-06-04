@@ -14,7 +14,7 @@
                 ) z
                 GROUP BY z.customer
             ) stream ON mc.custom=stream.customer
-        ORDER BY custom_level
+        ORDER BY custom_level DESC, seq
     </select>
 
     <select id="getServiceList" resultType="string">
