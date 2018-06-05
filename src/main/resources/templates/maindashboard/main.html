@@ -29,86 +29,62 @@
                     <tr ng-repeat="item in mainDashboardList" ng-if="$index % 5 == 0">
                         <td class="responsive-omit-title">
                             <table class="table table-bordered table-hover table-condensed mb-0">
-                                <colgroup>
-                                    <col width="50%" />
-                                    <col width="50%" />
-                                </colgroup>
                                 <tr class="text-center">
-                                    <td colspan="2" class="info">
+                                    <td class="info">
                                         <strong><span ng-bind="item.custom"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
                                     <td><button type="button" ng-class="getStatusClass(item.gf_status)" ng-click="blankLink(item, 'gf')">
-                                        G</button></td>
-                                    <td><button type="button" ng-class="getStatusClass(item.live_stream_status)" ng-click="blankLink(item, 'live')">
+                                        G</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" ng-class="getStatusClass(item.live_stream_status)" ng-click="blankLink(item, 'live')">
                                         L</button></td>
                                 </tr>
                             </table>
                         </td>
                         <td class="responsive-omit-title" ng-if="$index+1 < mainDashboardList.length">
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
-                                <colgroup>
-                                    <col width="50%" />
-                                    <col width="50%" />
-                                </colgroup>
                                 <tr class="text-center">
-                                    <td colspan="2" class="info">
+                                    <td class="info">
                                         <strong><span ng-bind="mainDashboardList[$index+1].custom"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
                                     <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+1].gf_status)" ng-click="blankLink(mainDashboardList[$index+1], 'gf')">
-                                        G</button></td>
-                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+1].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+1], 'live')">
+                                        G</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" ng-class="getStatusClass(mainDashboardList[$index+1].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+1], 'live')">
                                         L</button></td>
                                 </tr>
                             </table>
                         </td>
                         <td class="responsive-omit-title" ng-if="$index+2 < mainDashboardList.length">
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
-                                <colgroup>
-                                    <col width="50%" />
-                                    <col width="50%" />
-                                </colgroup>
                                 <tr class="text-center">
-                                    <td colspan="2" class="info">
+                                    <td class="info">
                                         <strong><span ng-bind="mainDashboardList[$index+2].custom"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
                                     <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+2].gf_status)" ng-click="blankLink(mainDashboardList[$index+2], 'gf')">
-                                        G</button></td>
-                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+2].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+2], 'live')">
+                                        G</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" ng-class="getStatusClass(mainDashboardList[$index+2].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+2], 'live')">
                                         L</button></td>
                                 </tr>
                             </table>
                         </td>
                         <td class="responsive-omit-title" ng-if="$index+3 < mainDashboardList.length">
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
-                                <colgroup>
-                                    <col width="50%" />
-                                    <col width="50%" />
-                                </colgroup>
                                 <tr class="text-center">
-                                    <td colspan="2" class="info">
+                                    <td class="info">
                                         <strong><span ng-bind="mainDashboardList[$index+3].custom"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
                                     <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+3].gf_status)" ng-click="blankLink(mainDashboardList[$index+3], 'gf')">
-                                        G</button></td>
-                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+3].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+3], 'live')">
+                                        G</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" ng-class="getStatusClass(mainDashboardList[$index+3].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+3], 'live')">
                                         L</button></td>
                                 </tr>
                             </table>
                         </td>
                         <td class="responsive-omit-title" ng-if="$index+4 < mainDashboardList.length">
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0 ">
-                                <colgroup>
-                                    <col width="50%" />
-                                    <col width="50%" />
-                                </colgroup>
                                 <tr class="text-center">
                                     <td colspan="2" class="info">
                                         <strong><span ng-bind="mainDashboardList[$index+4].custom"></span></strong>
@@ -116,8 +92,7 @@
                                 </tr>
                                 <tr class="text-center">
                                     <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+4].gf_status)" ng-click="blankLink(mainDashboardList[$index+4], 'gf')">
-                                        G</button></td>
-                                    <td><button type="button" ng-class="getStatusClass(mainDashboardList[$index+4].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+4], 'live')">
+                                        G</button>&nbsp;&nbsp;&nbsp;&nbsp;<button type="button" ng-class="getStatusClass(mainDashboardList[$index+4].live_stream_status)" ng-click="blankLink(mainDashboardList[$index+4], 'live')">
                                         L</button></td>
                                 </tr>
                             </table>
