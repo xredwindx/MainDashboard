@@ -16,7 +16,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 group = 'com.solbox'
-version = 'v1.1'
+version = 'v1.2'
 sourceCompatibility = 1.8
 
 repositories {

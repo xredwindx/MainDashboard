@@ -12,7 +12,7 @@
     height: 40px;
     padding: 6px 0px;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 20px;
     line-height: 1.33;
 }
 
@@ -25,4 +25,8 @@
     vertical-align: middle;
     font-size: 12px;
     line-height: 1.42857;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
 }

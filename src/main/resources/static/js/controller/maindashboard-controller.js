@@ -84,5 +84,5 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     }
 
     // refresh
-    $interval(function () { $scope.init(); }, 60*1000);
+    // $interval(function () { $scope.init(); }, 60*1000);
 });
