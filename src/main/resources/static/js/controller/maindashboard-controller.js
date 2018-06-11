@@ -57,17 +57,12 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     }
 
     // status text
-    $scope.getStatusText = function (item) {
-        var ret = ""
-        if(item == "") {
-            ret = "N/A";
-        }
-        else if (item == "0") {
-            ret = "정상";
+    $scope.getCustom = function (webName, name) {
+        if(webName == "") {
+            return name;
         } else {
-            ret = "에러";
+            return webName;
         }
-        return ret;
     }
 
     // link

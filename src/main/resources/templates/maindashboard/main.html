@@ -31,7 +31,7 @@
                             <table class="table table-bordered table-hover table-condensed mb-0">
                                 <tr class="text-center">
                                     <td class="info">
-                                        <strong><span ng-bind="item.custom"></span></strong>
+                                        <strong><span ng-bind="getCustom(item.web_custom, item.custom)"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
@@ -45,7 +45,7 @@
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
                                 <tr class="text-center">
                                     <td class="info">
-                                        <strong><span ng-bind="mainDashboardList[$index+1].custom"></span></strong>
+                                        <strong><span ng-bind="getCustom(mainDashboardList[$index+1].web_custom, mainDashboardList[$index+1].custom)"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
@@ -59,7 +59,7 @@
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
                                 <tr class="text-center">
                                     <td class="info">
-                                        <strong><span ng-bind="mainDashboardList[$index+2].custom"></span></strong>
+                                        <strong><span ng-bind="getCustom(mainDashboardList[$index+2].web_custom, mainDashboardList[$index+2].custom)"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
@@ -73,7 +73,7 @@
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0">
                                 <tr class="text-center">
                                     <td class="info">
-                                        <strong><span ng-bind="mainDashboardList[$index+3].custom"></span></strong>
+                                        <strong><span ng-bind="getCustom(mainDashboardList[$index+3].web_custom, mainDashboardList[$index+3].custom)"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
@@ -86,8 +86,8 @@
                         <td class="responsive-omit-title" ng-if="$index+4 < mainDashboardList.length">
                             <table width="100%" class="table table-bordered table-hover table-condensed mb-0 ">
                                 <tr class="text-center">
-                                    <td colspan="2" class="info">
-                                        <strong><span ng-bind="mainDashboardList[$index+4].custom"></span></strong>
+                                    <td class="info">
+                                        <strong><span ng-bind="getCustom(mainDashboardList[$index+4].web_custom, mainDashboardList[$index+4].custom)"></span></strong>
                                     </td>
                                 </tr>
                                 <tr class="text-center">
