@@ -21,7 +21,7 @@
                             <a ng-click="logoutBtn()">로그아웃</a>
                         </li>
                         <li>
-                            <a ng-click="config()">Edge Config</a>
+                            <a ng-click="config('{{edgeConfigUrl}}')">Edge Config</a>
                         </li>
                     </ul>
                 </li>
@@ -47,8 +47,8 @@
             $window.location.href = "/login";
         }
 
-        $scope.config = function () {
-            $window.open("http://119.206.199.55/md/edge_config.php", "_blank");
+        $scope.config = function (url) {
+            $window.open(url, "_blank");
         }
     });
 </script>

@@ -28,5 +28,8 @@ maindashboard.influx.api.user=
 maindashboard.influx.api.pwd=
 maindashboard.influx.api.db=
 
+# edge config url
+edge_config=
+
 # version
 c_version=1.3v
