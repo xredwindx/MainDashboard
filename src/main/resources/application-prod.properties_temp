@@ -1,0 +1,32 @@
+# port
+server.port=8081
+
+# mustache suffix
+spring.mustache.suffix=.html
+
+# static
+spring.mvc.static-path-pattern=/static/**
+
+# mybatis
+mybatis.mapper-locations=mapper/*.xml
+
+# mariadb
+spring.datasource.driver-class-name=net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+spring.datasource.url=jdbc:log4jdbc:mariadb://
+spring.datasource.username=
+spring.datasource.password=
+spring.datasource.tomcat.test-on-borrow=true
+spring.datasource.tomcat.validation-query=SELECT 1
+
+# logging
+maindashboard.logs_dir=
+logging.config=classpath:logback-spring.xml
+
+# influx api
+maindashboard.influx.api.url=
+maindashboard.influx.api.user=
+maindashboard.influx.api.pwd=
+maindashboard.influx.api.db=
+
+# version
+c_version=1.3v

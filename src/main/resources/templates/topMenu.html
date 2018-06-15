@@ -20,6 +20,9 @@
                         <li>
                             <a ng-click="logoutBtn()">로그아웃</a>
                         </li>
+                        <li>
+                            <a ng-click="config()">Edge Config</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -42,6 +45,10 @@
         $scope.logoutBtn = function () {
             sessionStorage.clear();
             $window.location.href = "/login";
+        }
+
+        $scope.config = function () {
+            $window.open("http://119.206.199.55/md/edge_config.php", "_blank");
         }
     });
 </script>

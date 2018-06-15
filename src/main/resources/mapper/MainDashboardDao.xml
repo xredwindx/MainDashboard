@@ -3,11 +3,11 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.solbox.api.dao.MainDashboardDao">
     <select id="getMainDashboard" resultType="hashMap">
-        SELECT custom, web_custom, gf_url, IFNULL(live_stream_status,'') AS live_stream_status
+        SELECT custom, web_custom, gf_uri, IFNULL(live_stream_status,'') AS live_stream_status
         FROM kt_md_custom mc LEFT JOIN (
                 SELECT z.customer, SUM(z.cnt) AS live_stream_status
                 FROM (
-                SELECT customer, CASE WHEN mon_status = 'OK' || mon_status = 'RECOVERY' THEN 0 ELSE 1 END AS cnt
+                SELECT customer, mon_count AS cnt
                 FROM strmondb.t_stream_mon
                 WHERE telco_gubun = 'KT'
                 AND deleted_yn='N'
@@ -19,7 +19,7 @@
 
     <select id="getServiceList" resultType="string">
         SELECT DISTINCT svc_name
-        FROM svcdb.kt_svc
+        FROM svcdb.kt_svc c INNER JOIN kt_domain_conf dc ON c.svc_name=dc.svc_id
         WHERE sp_comp_name = #{custom}
     </select>
 </mapper>

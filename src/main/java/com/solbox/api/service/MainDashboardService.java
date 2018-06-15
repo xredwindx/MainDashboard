@@ -8,4 +8,5 @@ import java.util.Map;
  */
 public interface MainDashboardService {
     List<Map<String, Object>> getMainDashboard();
+    List<Map<String, Object>> getErrMsg();
 }

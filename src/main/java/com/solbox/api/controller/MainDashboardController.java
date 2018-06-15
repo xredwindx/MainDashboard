@@ -37,4 +37,18 @@ public class MainDashboardController {
         return new ResponseEntity<Object>(mainDashboardList, apiStatus);
     }
 
+    @RequestMapping(value = "/api/maindashboard/errmsg", method = RequestMethod.POST)
+    public ResponseEntity<?> getErrMessage(@RequestBody Map<String, Object> param) {
+        HttpStatus apiStatus = HttpStatus.OK;
+        List<Map<String, Object>> errMsgList = null;
+
+        try {
+            errMsgList = mainDashboardService.getErrMsg();
+        } catch(Exception e) {
+            log.error(e.getMessage(), e);
+            apiStatus = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+
+        return new ResponseEntity<Object>(errMsgList, apiStatus);
+    }
 }
