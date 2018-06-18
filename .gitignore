@@ -27,5 +27,5 @@
 /.nb-gradle/
 
 ### 보안 ###
-src/main/resources/application-local.properties
-src/main/resources/application-prod.properties
+/src/main/resources/application-local.properties
+/src/main/resources/application-prod.properties
