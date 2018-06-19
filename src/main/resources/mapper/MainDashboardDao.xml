@@ -5,7 +5,7 @@
     <select id="getMainDashboard" resultType="hashMap">
         SELECT custom, web_custom, gf_uri, IFNULL(live_stream_status,'') AS live_stream_status
         FROM kt_md_custom mc LEFT JOIN (
-                SELECT z.customer, SUM(z.cnt) AS live_stream_status
+                SELECT z.customer, MAX(z.cnt) AS live_stream_status
                 FROM (
                 SELECT customer, mon_count AS cnt
                 FROM strmondb.t_stream_mon
