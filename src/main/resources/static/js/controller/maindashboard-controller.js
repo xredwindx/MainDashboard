@@ -8,7 +8,6 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
         $scope.userID = userInfo.user_id;
 
         $scope.getMainDashboarList();
-        $scope.getErrMsgList();
     }
 
     // 에러 메세지
@@ -43,19 +42,19 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     }
 
     // 에러메세지 목록
-    $scope.getErrMsgList = function () {
-        $http({
-            method: "POST",
-            url: "/api/maindashboard/errmsg",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            data: "{}"
-        }).then(function success (res) {
-            $scope.errMsgList = res.data;
-        }, function error (error) {
-        });
-    }
+    // $scope.getErrMsgList = function () {
+    //     $http({
+    //         method: "POST",
+    //         url: "/api/maindashboard/errmsg",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         data: "{}"
+    //     }).then(function success (res) {
+    //         $scope.errMsgList = res.data;
+    //     }, function error (error) {
+    //     });
+    // }
 
     // init
     $scope.init();
@@ -88,11 +87,11 @@ routeApp.controller("mainDashboardCtl", function ($scope, $http, $interval, $win
     }
 
     // status text
-    $scope.getCustom = function (webName, name) {
-        if(webName == "") {
-            return name;
+    $scope.getCustom = function (item) {
+        if(item.web_custom == "") {
+            return item.custom;
         } else {
-            return webName;
+            return item.web_custom;
         }
     }
 
